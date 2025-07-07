@@ -13,15 +13,10 @@ export interface ApiResponse {
 export interface ApiState {
   isLoading: boolean
   error: string | null
-  retryCount: number
-  isRetrying: boolean
 
   // Actions
   setLoading: (isLoading: boolean) => void
   setError: (error: string | null) => void
-  incrementRetry: () => void
-  resetRetry: () => void
-  setRetrying: (isRetrying: boolean) => void
 }
 
 export interface ApiSimulationOptions {

@@ -109,22 +109,6 @@ export const simulateValidationAPI = async (
   return { valid: true }
 }
 
-// Simulate retry with exponential backoff
-export const simulateRetryAPI = async (
-  formData: CheckoutFormData,
-  retryCount: number
-): Promise<ApiResponse> => {
-  const backoffDelay = Math.min(1000 * Math.pow(2, retryCount), 5000)
-
-  return simulateCheckoutAPI(formData, {
-    delay: backoffDelay,
-    scenarios: [
-      { type: 'success', weight: 0.8 }, // Higher success rate on retry
-      { type: 'network_error', weight: 0.2 },
-    ],
-  })
-}
-
 // Test different scenarios manually (for demo purposes)
 export const testScenarios = {
   success: (formData: CheckoutFormData) =>
