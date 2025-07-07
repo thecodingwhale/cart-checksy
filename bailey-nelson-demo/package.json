@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@tailwindcss/postcss": "^4.1.11",
+    "@tanstack/react-query": "^5.81.5",
     "autoprefixer": "^10.4.21",
     "formik": "^2.4.6",
     "postcss": "^8.5.6",

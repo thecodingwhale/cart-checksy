@@ -29,7 +29,7 @@ export const CheckoutForm: React.FC = () => {
     try {
       setSubmitting(true)
 
-      // Submit form using API simulation
+      // Submit form using TanStack Query mutation
       const result = await apiSimulation.submitForm(values)
 
       if (result.success) {
@@ -40,7 +40,7 @@ export const CheckoutForm: React.FC = () => {
         // formActions.resetForm()
         // formPersistence.clearPersistedData()
       } else {
-        // Handle validation errors
+        // Handle validation errors from the API response
         if (result.fieldErrors) {
           Object.entries(result.fieldErrors).forEach(([field, error]) => {
             setFieldError(field, error)
@@ -49,7 +49,7 @@ export const CheckoutForm: React.FC = () => {
       }
     } catch (error) {
       console.error('Submission error:', error)
-      // Error is already handled by the API simulation hook
+      // TanStack Query handles error state automatically
     } finally {
       setSubmitting(false)
     }
@@ -216,15 +216,17 @@ export const CheckoutForm: React.FC = () => {
               </div>
             </div>
 
-            {/* Error Messages */}
-            {formStatus.submitError && (
+            {/* Error Messages - Show TanStack Query errors or form errors */}
+            {(apiSimulation.error || formStatus.submitError) && (
               <div className="error-container">
-                <ErrorMessage message={formStatus.submitError} />
+                <ErrorMessage
+                  message={apiSimulation.error || formStatus.submitError || ''}
+                />
               </div>
             )}
 
-            {/* Success Messages */}
-            {formStatus.submitSuccess && (
+            {/* Success Messages - Show TanStack Query success or form success */}
+            {(apiSimulation.isSuccess || formStatus.submitSuccess) && (
               <div className="success-container">
                 <SuccessMessage message="Payment processed successfully! 🎉" />
               </div>
@@ -255,7 +257,10 @@ export const CheckoutForm: React.FC = () => {
             <div className="form-actions">
               <button
                 type="button"
-                onClick={() => formActions.resetForm()}
+                onClick={() => {
+                  formActions.resetForm()
+                  apiSimulation.resetApiState()
+                }}
                 className="form-action-link flex items-center"
               >
                 <svg
