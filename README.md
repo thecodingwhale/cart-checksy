@@ -1,53 +1,31 @@
-I will have a 30-minute live coding interview based on these pointers:
-The process would involve:
+# Checkout Form Demo
 
-30-minute programming session.
+A modern React checkout form built with TypeScript, demonstrating clean architecture and real-time validation.
 
-Richard will provide instructions to evaluate how I follow and implement tasks, assessing my real working style and problem-solving abilities.
+## ✨ Features
 
-Tasks will focus on day-to-day coding responsibilities, such as creating forms and real-time error validation.
+- **Smart Form Handling** - Formik + Yup validation with real-time feedback
+- **Modern State Management** - TanStack Query for API state + Zustand for form state
+- **Form Persistence** - Auto-saves form data as you type
+- **Fake API Simulation** - Realistic API responses with different scenarios (success, validation errors, network errors)
+- **TypeScript** - Fully typed for better developer experience
+- **Tailwind CSS** - Clean, responsive styling
 
-Job Description:
-https://runremote-1694559579.teamtailor.com/jobs/5921057-senior-front-end-developer?fbclid=IwY2xjawKenMZleHRuA2FlbQIxMABicmlkETFja1JZbVBKVW4ycklzZ2V6AR6AnV8LVy98lsv8WuYkAsTDQOdaRQVGb8tr52eUxhoydmyPmWTfVi_eph1qCA_aem_meEd5d0Z_DAHDzazOG2sAg
+## 🏗️ Architecture
 
-Interview conducted by Richard Buggy:
+- **Components**: Reusable UI components with TypeScript props
+- **Hooks**: Custom hooks for API simulation and form persistence
+- **Store**: Zustand for client state management
+- **Types**: Shared TypeScript interfaces and types
+- **Utils**: Validation schemas and helper functions
 
-LinkedIn
+## 🎯 Key Tech Stack
 
-GitHub
+- React 18 + TypeScript
+- TanStack Query (API state)
+- Zustand (Client state)
+- Formik + Yup (Forms)
+- Tailwind CSS (Styling)
+- Vite (Build tool)
 
-Instagram
-
-Engineering Manager at Bailey Nelson
-
-Richard emphasized using forms with Formik in React and proper state management. Currently, their team uses Redux, but I plan to demonstrate Zustand as an alternative during this session. They heavily rely on Tailwind CSS for styling.
-
-He highlighted correctly utilizing TypeScript, demonstrating structured and clear conversion from JavaScript to fully typed TypeScript. They've transitioned from create-react-app to Vite.
-
-Optimized live coding interview scenario:
-
-Scope & Requirements:
-
-Checkout or user registration form with real-time validation.
-
-Technical Preferences:
-
-Simulate asynchronous actions with fake API requests using promises or dummy data.
-
-Demonstrate both front-end validation and error handling for simulated API responses.
-
-Keep form structure simple due to time constraints.
-
-State Management & Styling:
-
-Emphasize Zustand's state persistence, form state, and integration with Formik.
-
-Use Formik's built-in validation methods.
-
-Focus primarily on problem-solving, scalable code architecture, proper base structure, consumer/producer components, smart/dumb components. UI design and responsiveness should be secondary.
-
-TypeScript Conversion:
-
-Begin with TypeScript immediately.
-
-Demonstrate reusable types/interfaces clearly.
+Built as a demo for modern React patterns and clean code architecture. 🎉
